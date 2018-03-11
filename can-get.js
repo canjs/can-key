@@ -1,4 +1,5 @@
 'use strict';
+var canReflect = require("can-reflect");
 
 var isContainer = function (current) {
     return /^f|^o/.test(typeof current);
@@ -22,14 +23,25 @@ var isContainer = function (current) {
  * console.log(get({a: {b: {c: "foo"}}}, "a.b.c")); // -> "foo"
  * console.log(get({a: {}}, "a.b.c")); // -> undefined
  * console.log(get([{a: {}}, {a: {b: "bar"}}], "a.b")); // -> "bar"
+ *
+ * var map = new Map();
+ * map.set("first", {second: "third"});
+ *
+ * get(map, "first.second") //-> "third"
  * ```
  */
 function get(obj, name) {
     // The parts of the name we are looking up
     // `['App','Models','Recipe']`
-    var parts = typeof name !== 'undefined' ? (name + '').replace(/\[/g,'.')
-    		.replace(/]/g,'').split('.') : [],
-        length = parts.length,
+    var parts;
+    if(Array.isArray(name)) {
+        parts = name;
+    } else {
+        parts = typeof name !== 'undefined' ? (name + '').replace(/\[/g,'.')
+        		.replace(/]/g,'').split('.') : [];
+    }
+    
+    var length = parts.length,
         current, i, container;
 
     if (!length) {
@@ -42,7 +54,7 @@ function get(obj, name) {
     // is not a container.
     for (i = 0; i < length && isContainer(current) && current !== null; i++) {
         container = current;
-        current = container[parts[i]];
+        current = canReflect.getKeyValue( container, parts[i] );
     }
 
     return current;

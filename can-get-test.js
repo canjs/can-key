@@ -3,6 +3,7 @@
 var QUnit = require('steal-qunit');
 
 var get  = require('./can-get');
+var canReflect = require("can-reflect");
 
 QUnit.module('can-get');
 
@@ -50,3 +51,33 @@ QUnit.test('get with numeric index', function (assert) {
 	var result1 = get(list, 1);
 	assert.equal(result1, 2, 'got the 2nd element of the list');
 });
+
+QUnit.test("works with reflected APIs", function(assert){
+    var obj = canReflect.assignSymbols({},{
+        "can.getKeyValue": function(key){
+            return this._data[key];
+        }
+    });
+    obj._data = {foo: {
+        bar: "zed"
+    }};
+
+    var result = get(obj, "foo.bar");
+    assert.equal(result, "zed", 'got \'zed\'');
+});
+
+if(typeof Map !== undefined) {
+    QUnit.test("works with reflected APIs and Map", function(assert){
+
+        var map = new Map();
+        map.set("first", {second: "third"});
+        assert.equal( get(map, "first.second"),  "third");
+
+        var key = {};
+
+        map = new Map();
+        map.set(key, {second: "third"});
+        assert.equal( get(map, [key, "second"]),  "third");
+
+    });
+}
