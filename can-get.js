@@ -1,9 +1,6 @@
 'use strict';
 var canReflect = require("can-reflect");
-
-var isContainer = function (current) {
-    return /^f|^o/.test(typeof current);
-};
+var utils = require("./utils");
 
 /**
  * @module {function} can-get
@@ -33,14 +30,8 @@ var isContainer = function (current) {
 function get(obj, name) {
     // The parts of the name we are looking up
     // `['App','Models','Recipe']`
-    var parts;
-    if(Array.isArray(name)) {
-        parts = name;
-    } else {
-        parts = typeof name !== 'undefined' ? (name + '').replace(/\[/g,'.')
-        		.replace(/]/g,'').split('.') : [];
-    }
-    
+    var parts = utils.parts(name);
+
     var length = parts.length,
         current, i, container;
 
@@ -52,7 +43,7 @@ function get(obj, name) {
 
     // Walk current to the 2nd to last object or until there
     // is not a container.
-    for (i = 0; i < length && isContainer(current) && current !== null; i++) {
+    for (i = 0; i < length && utils.isContainer(current) && current !== null; i++) {
         container = current;
         current = canReflect.getKeyValue( container, parts[i] );
     }
