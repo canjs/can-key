@@ -1,6 +1,8 @@
 var transform = require("./transform");
 var QUnit = require("steal-qunit");
 
+QUnit.module("transform");
+
 QUnit.test('basics', function (assert) {
     var hydrateTransfomer = {
         start: "page.start",
@@ -15,7 +17,9 @@ QUnit.test('basics', function (assert) {
         transform({ start: 1, end: 2 }, hydrateTransfomer),
         {page: {start: 1, end: 2}});
 
+    var source = {page: {start: 1, end: 2}};
     assert.deepEqual(
-        transform({page: {start: 1, end: 2}}, serializeTransformer),
+        transform(source, serializeTransformer),
         { start: 1, end: 2 });
+    QUnit.deepEqual(source, {page: {start: 1, end: 2}});
 });

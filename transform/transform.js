@@ -13,7 +13,7 @@ function deleteKeys(parentsAndKeys) {
 }
 
 module.exports = function(obj, transformer){
-    var copy = canReflect.assignDeep({}, obj);
+    var copy = canReflect.serialize( obj);
 
     canReflect.eachKey(transformer, function(writeKey, readKey){
         var readParts = utils.parts(readKey),
