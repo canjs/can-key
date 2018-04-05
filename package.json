@@ -1,11 +1,11 @@
 {
-  "name": "can-get",
+  "name": "can-key",
   "version": "0.2.1",
   "description": "Read nested key values",
   "homepage": "http://canjs.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/canjs/can-get.git"
+    "url": "git://github.com/canjs/can-key.git"
   },
   "author": {
     "name": "DoneJS",
@@ -25,13 +25,13 @@
     "build": "node build.js",
     "develop": "done-serve --static --develop --port 8080"
   },
-  "main": "can-get",
+  "main": "can-key",
   "keywords": [
     "canjs",
     "donejs-plugin"
   ],
   "steal": {
-    "main": "can-get",
+    "main": "can-key",
     "configDependencies": [
       "live-reload"
     ],

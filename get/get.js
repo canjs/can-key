@@ -1,11 +1,10 @@
 'use strict';
 var canReflect = require("can-reflect");
-var utils = require("./utils");
+var utils = require("../utils");
 
 /**
- * @module {function} can-get
- * @parent can-js-utilities
- * @collection can-infrastructure
+ * @module {function} can-key/get/get
+ * @parent can-key
  *
  * @signature `get(obj, path)`
  * @param  {Object} obj the object to use as the root for property based navigation
@@ -16,7 +15,7 @@ var utils = require("./utils");
  * 'bar' of the object at the property 'foo' of the root."  An empty path returns the object passed.
  *
  * ```js
- * var get = require("can-get");
+ * var get = require("can-key");
  * console.log(get({a: {b: {c: "foo"}}}, "a.b.c")); // -> "foo"
  * console.log(get({a: {}}, "a.b.c")); // -> undefined
  * console.log(get([{a: {}}, {a: {b: "bar"}}], "a.b")); // -> "bar"

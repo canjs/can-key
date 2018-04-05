@@ -1,5 +1,5 @@
-# can-get
+# can-key
 
-[![Build Status](https://travis-ci.org/canjs/can-get.svg?branch=master)](https://travis-ci.org/canjs/can-get)
+[![Build Status](https://travis-ci.org/canjs/can-key.svg?branch=master)](https://travis-ci.org/canjs/can-key)
 
 Read nested key values

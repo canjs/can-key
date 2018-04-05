@@ -2,6 +2,7 @@ var replaceWith = require("./replace-with");
 
 var QUnit = require("steal-qunit");
 
+QUnit.module("can-key/replace-with");
 
 QUnit.test('string.replaceWith should substitute paths with replacer values', function (assert) {
 	assert.expect(5);

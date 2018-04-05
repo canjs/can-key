@@ -2,10 +2,10 @@
 
 var QUnit = require('steal-qunit');
 
-var get  = require('./can-get');
+var get  = require('./get');
 var canReflect = require("can-reflect");
 
-QUnit.module('can-get');
+QUnit.module('can-key/get');
 
 QUnit.test('get Single root', function (assert) {
 	// ## Single root
@@ -81,8 +81,3 @@ if(typeof Map !== undefined) {
 
     });
 }
-
-
-require("./sub/sub-test");
-require("./replace-with/replace-with-test");
-require("./transform/transform-test");

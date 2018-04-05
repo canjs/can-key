@@ -1,1 +1,0 @@
-import './can-get-test';

@@ -1,4 +1,4 @@
-var get = require("../can-get");
+var walk = require("../walk/walk");
 var utils = require("../utils");
 var canReflect = require("can-reflect");
 
@@ -11,7 +11,10 @@ function deleteKeys(parentsAndKeys) {
         }
     }
 }
-
+/**
+ * @module {function} can-key/transform/transform
+ * @parent can-key
+ */
 module.exports = function(obj, transformer){
     var copy = canReflect.serialize( obj);
 
@@ -21,14 +24,14 @@ module.exports = function(obj, transformer){
 
         // find the value
         var parentsAndKeys = [];
-        utils.walk(copy, readParts, function(info){
+        walk(copy, readParts, function(info){
             parentsAndKeys.push(info);
         });
         var last = parentsAndKeys[parentsAndKeys.length - 1];
         var value = last.value;
         if(value !== undefined) {
             // write the value
-            utils.walk(copy, writeParts, function(info, i){
+            walk(copy, writeParts, function(info, i){
                 if(i < writeParts.length - 1 && !info.value) {
                     return info.parent[info.key] = {};
                 } else if(i === writeParts.length - 1){

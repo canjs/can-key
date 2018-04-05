@@ -1,6 +1,8 @@
 var sub = require("./sub");
 var QUnit = require("steal-qunit");
 
+QUnit.module("can-key/sub");
+
 QUnit.test('string.sub', function (assert) {
 	assert.equal( sub('a{b}', {
 		b: 'c'

@@ -1,7 +1,7 @@
 var transform = require("./transform");
 var QUnit = require("steal-qunit");
 
-QUnit.module("transform");
+QUnit.module("can-key/transform");
 
 QUnit.test('basics', function (assert) {
     var hydrateTransfomer = {
