@@ -1,4 +1,3 @@
-var canReflect = require("can-reflect");
 var utils = {
     isContainer: function (current) {
         var type = typeof current;
