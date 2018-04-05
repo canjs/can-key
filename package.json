@@ -1,6 +1,6 @@
 {
   "name": "can-key",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Read nested key values",
   "homepage": "http://canjs.com",
   "repository": {
