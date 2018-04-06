@@ -5,11 +5,14 @@ var utils = require("../utils");
 /**
  * @module {function} can-key/get/get
  * @parent can-key
+ * @description Get properties on deep/nested objects of different types: Object, Map, [can-reflect] types, etc.
  *
  * @signature `get(obj, path)`
- * @param  {Object} obj the object to use as the root for property based navigation
+ * @param  {Object} obj the object to use as the root for property-based navigation
  * @param  {String} path a String of dot-separated keys, representing a path of properties
  * @return {*}       the value at the property path
+ *
+ * @body
  *
  * A *path* is a dot-delimited sequence of zero or more property names, such that "foo.bar" means "the property
  * 'bar' of the object at the property 'foo' of the root."  An empty path returns the object passed.
