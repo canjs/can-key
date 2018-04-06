@@ -47,7 +47,8 @@
     ]
   },
   "dependencies": {
-    "can-reflect": "^1.13.3"
+    "can-reflect": "^1.13.3",
+    "can-symbol": "^1.0.0"
   },
   "devDependencies": {
     "jshint": "^2.9.1",

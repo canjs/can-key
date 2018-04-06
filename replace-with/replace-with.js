@@ -30,6 +30,7 @@ var deleteKey = require("../delete/delete");
  * found in delimiters in `str` from `data`.
  * @return {String} the supplied string with delimited properties replaced with their values.
  *
+ * @body
  *
  * ```js
  * var replaceWith = require("can-key/replace-with/replace-with");
