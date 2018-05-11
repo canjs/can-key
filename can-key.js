@@ -3,9 +3,10 @@ var deleteKey = require("can-key/delete/delete"),
     replaceWith = require("can-key/replace-with/replace-with"),
     set = require("can-key/set/set"),
     transform = require("can-key/transform/transform"),
-    walk = require("can-key/walk/walk");
+    walk = require("can-key/walk/walk"),
+    namespace = require("can-namespace");
 
-module.exports = {
+module.exports = namespace.key = {
     deleteKey: deleteKey,
     get: get,
     replaceWith: replaceWith,
