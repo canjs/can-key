@@ -1,3 +1,4 @@
+"use strict";
 var deleteKey = require("can-key/delete/delete"),
     get = require("can-key/get/get"),
     replaceWith = require("can-key/replace-with/replace-with"),

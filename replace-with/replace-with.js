@@ -1,3 +1,4 @@
+"use strict";
 var utils = require("../utils");
 var get = require("../get/get");
 var deleteKey = require("../delete/delete");
