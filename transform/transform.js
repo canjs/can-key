@@ -1,3 +1,4 @@
+"use strict";
 var walk = require("../walk/walk");
 var utils = require("../utils");
 var canReflect = require("can-reflect");
