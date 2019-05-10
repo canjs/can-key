@@ -1,6 +1,7 @@
 @module {Object} can-key
 @parent can-js-utilities
 @collection can-infrastructure
+@package ./package.json
 
 @description Utilities that read and write nested properties on objects and arrays.
 
