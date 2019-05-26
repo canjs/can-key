@@ -21,5 +21,5 @@ QUnit.test('basics', function (assert) {
     assert.deepEqual(
         transform(source, serializeTransformer),
         { start: 1, end: 2 });
-    QUnit.deepEqual(source, {page: {start: 1, end: 2}});
+    assert.deepEqual(source, {page: {start: 1, end: 2}});
 });
